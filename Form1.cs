@@ -13,11 +13,11 @@ namespace ConexionDePuertos
 {
     public partial class Form1 : Form
     {
-        SerialPort serialPort;
+        private SerialPort serialPort;
         public Form1()
         {
             InitializeComponent();
-            serialPort = new SerialPort("COM3", 9600); // Configura el puerto COM y la velocidad de baudios
+            serialPort = new SerialPort("COM3", 115200); // Configura el puerto COM y la velocidad de baudios
             serialPort.DataReceived += SerialPort_DataReceived; // Asigna el evento DataReceived
 
             try
@@ -48,7 +48,6 @@ namespace ConexionDePuertos
                 serialPort.Close(); // Cierra el puerto serial antes de salir de la aplicación
             }
         }
-
 
         private void LoadAvailablePorts()
         {
